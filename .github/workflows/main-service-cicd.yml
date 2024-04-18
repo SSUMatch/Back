@@ -83,5 +83,6 @@ jobs:
             sudo docker pull ${{ secrets.MAIN_DOCKER_REPOSITORY }}/${{ secrets.MAIN_DOCKER_IMAGE }}
             chmod 777 ./scripts/deploy.sh
             cp ./scripts/deploy.sh ./Main/deploy.sh
-            ./Main/deploy.sh
+            cd ./Main
+            ./deploy.sh
             docker image prune -f
