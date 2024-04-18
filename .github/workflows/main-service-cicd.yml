@@ -71,7 +71,7 @@ jobs:
           key: ${{ secrets.MAIN_EC2_KEY }}
           port: ${{ secrets.MAIN_EC2_PORT }}
           source: "./Main/docker-compose.yml"
-          target: "/home/ubuntu/docker-compose.yml"
+          target: "/home/ubuntu/"
 
       - name: docker hub 에서 pull 후 deploy
         uses: appleboy/ssh-action@master
@@ -82,6 +82,6 @@ jobs:
           script: |
             sudo docker pull ${{ secrets.MAIN_DOCKER_REPOSITORY }}/${{ secrets.MAIN_DOCKER_IMAGE }}
             chmod 777 ./scripts/deploy.sh
-            cp ./scripts/deploy.sh ./deploy.sh
-            ./deploy.sh
+            cp ./scripts/deploy.sh ./Main/deploy.sh
+            ./Main/deploy.sh
             docker image prune -f
