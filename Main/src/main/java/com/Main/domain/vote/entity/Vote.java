@@ -21,7 +21,7 @@ public class Vote {
     private Integer count; // 투표 수
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "match_id", nullable = false)
+    @JoinColumn(name = "user_match_id")
     private UserMatch userMatch;
 
 

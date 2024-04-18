@@ -23,7 +23,7 @@ public class QuarterInfo {
     private Integer defence; // 어시스트
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_match_id", nullable = false)
+    @JoinColumn(name = "user_match_id")
     private UserMatch userMatch;
 
     @ManyToOne(fetch = FetchType.LAZY)

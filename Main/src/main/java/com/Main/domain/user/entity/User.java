@@ -1,5 +1,6 @@
 package com.Main.domain.user.entity;
 
+import com.Main.domain.record.entity.Record;
 import com.Main.domain.team.entity.Team;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -33,7 +34,7 @@ public class User {
     @JoinColumn(name = "team_id")
     private Team team; //팀
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToOne
     private Record record;  // 기록
 
 
@@ -41,15 +42,4 @@ public class User {
         return new User(id, name, age, image, description, number, grade, location, team, record);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof User user)) return false;
-        return Objects.equals(id, user.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }

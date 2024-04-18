@@ -8,11 +8,11 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
-@Table(name = "match")
+@Table(name = "matches")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Match {
+public class Matches {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,16 +27,16 @@ public class Match {
     @Enumerated(EnumType.STRING) private MatchSize size; // 인원 수
     @Enumerated(EnumType.STRING) private MatchGender gender; // 성별
 
-    @ManyToOne
-    @JoinColumn(name = "place_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "place_id")
     private Place place;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "manger_id")
+    @JoinColumn(name = "manager_id")
     private Manager manager;
 
 
-    public static Match of(Long id, LocalDate match_date, LocalTime start_time, LocalTime end_time, String number, MatchType type, MatchSize size, MatchGender gender, Place place, Manager manager) {
-        return new Match(id, match_date, start_time, end_time, number, type, size, gender, place, manager);
+    public static Matches of(Long id, LocalDate match_date, LocalTime start_time, LocalTime end_time, String number, MatchType type, MatchSize size, MatchGender gender, Place place, Manager manager) {
+        return new Matches(id, match_date, start_time, end_time, number, type, size, gender, place, manager);
     }
 }
