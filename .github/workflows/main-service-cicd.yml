@@ -71,7 +71,7 @@ jobs:
           key: ${{ secrets.MAIN_EC2_KEY }}
           port: ${{ secrets.MAIN_EC2_PORT }}
           source: "./Main/docker-compose.yml"
-          target: "/home/ubuntu/"
+          target: "/home/ubuntu"
 
       - name: docker hub 에서 pull 후 deploy
         uses: appleboy/ssh-action@master
