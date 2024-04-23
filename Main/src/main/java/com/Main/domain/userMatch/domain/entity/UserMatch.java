@@ -1,7 +1,7 @@
-package com.Main.domain.userMatch.entity;
+package com.Main.domain.userMatch.domain.entity;
 
 
-import com.Main.domain.match.entity.Matches;
+import com.Main.domain.match.domain.entity.Matches;
 import com.Main.domain.team.entity.TeamType;
 import com.Main.domain.user.entity.User;
 import jakarta.persistence.*;

@@ -34,7 +34,8 @@ public class User {
     @JoinColumn(name = "team_id")
     private Team team; //팀
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "record_id")
     private Record record;  // 기록
 
 

@@ -1,4 +1,5 @@
-package com.Main.domain.match.entity;
+package com.Main.domain.match.domain.entity;
+
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

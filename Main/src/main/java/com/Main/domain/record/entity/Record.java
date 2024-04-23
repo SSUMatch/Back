@@ -22,7 +22,7 @@ public class Record {
     private Integer defence; // 수비
     private Integer pom; // 플레이 오브 더 매치
 
-    @OneToOne
+    @OneToOne(mappedBy = "record")
     private User user;
 
 

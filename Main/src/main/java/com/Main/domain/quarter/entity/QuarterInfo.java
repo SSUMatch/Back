@@ -1,6 +1,6 @@
 package com.Main.domain.quarter.entity;
 
-import com.Main.domain.userMatch.entity.UserMatch;
+import com.Main.domain.userMatch.domain.entity.UserMatch;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
