@@ -1,4 +1,4 @@
-package com.Main.domain.match.entity;
+package com.Main.domain.match.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
