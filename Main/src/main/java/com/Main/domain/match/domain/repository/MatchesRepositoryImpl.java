@@ -3,6 +3,8 @@ package com.Main.domain.match.domain.repository;
 import com.Main.domain.match.domain.entity.Matches;
 import com.Main.global.error.exception.GeneralException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -15,9 +17,9 @@ import static com.Main.global.error.status.ErrorStatus.MATCHES_NOT_FOUND;
 public class MatchesRepositoryImpl implements MatchesRepository{
     private final MatchesRepositoryJpa matchesRepositoryJpa;
     @Override
-    public List<Matches> findAllByDate(String date){
+    public Page<Matches> findAllByDate(Pageable pageable, String date){
         LocalDate localDate = LocalDate.parse(date);
-        return matchesRepositoryJpa.findAllByDate(localDate);
+        return matchesRepositoryJpa.findAllByDate(pageable, localDate);
     }
     @Override
     public Matches findById(Long matchesId){
