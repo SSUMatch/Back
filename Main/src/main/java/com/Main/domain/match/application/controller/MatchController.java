@@ -17,8 +17,8 @@ import java.util.List;
 public class MatchController {
      private final MatchService matchService;
      @GetMapping
-     ApiResponse<List<SimpleMatchInfoResponse>> getMatchList(@RequestParam(name = "date") String date){
-          final List<SimpleMatchInfoResponse> simpleMatchInfoResponses = matchService.getMatchInfoList(date);
+     ApiResponse<List<SimpleMatchInfoResponse>> getMatchList(@RequestParam(name = "page") int page, @RequestParam(name = "take") int take, @RequestParam(name = "date") String date){
+          final List<SimpleMatchInfoResponse> simpleMatchInfoResponses = matchService.getMatchInfoList(page, take, date);
           return ApiResponse.onSuccess(simpleMatchInfoResponses);
      }
 }
