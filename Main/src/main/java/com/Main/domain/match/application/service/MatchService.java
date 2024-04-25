@@ -22,6 +22,7 @@ public class MatchService {
     public List<SimpleMatchInfoResponse> getMatchInfoList(int page, int take, String date){
         Page<Matches> matchesList = matchesReader.getMatchesWithDate(setPageable(page, take),date);
         return matchesList.stream().map(matches -> SimpleMatchInfoResponse.of(
+                matches.getId(),
                 String.valueOf(matches.getStart_time()),
                 matches.getPlace().getName(),
                 matchesFormatter.getMatchInfo(matches),
