@@ -3,7 +3,7 @@ package com.Main.domain.userMatch.domain.entity;
 
 import com.Main.domain.match.domain.entity.Matches;
 import com.Main.domain.team.entity.TeamType;
-import com.Main.domain.user.entity.User;
+import com.Main.domain.user.domain.entity.User;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
