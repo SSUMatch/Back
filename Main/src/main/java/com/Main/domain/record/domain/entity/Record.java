@@ -1,6 +1,6 @@
 package com.Main.domain.record.entity;
 
-import com.Main.domain.user.entity.User;
+import com.Main.domain.user.domain.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 
