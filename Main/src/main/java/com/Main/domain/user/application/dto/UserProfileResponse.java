@@ -5,7 +5,7 @@ import com.Main.domain.record.domain.entity.Record;
 import com.Main.domain.user.domain.entity.User;
 
 public record UserProfileResponse(
-        Long id,
+        Long userId,
         String name,
         Integer age,
         String image,
