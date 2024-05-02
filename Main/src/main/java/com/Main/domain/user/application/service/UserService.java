@@ -1,7 +1,7 @@
 package com.Main.domain.user.application.service;
 
 import com.Main.domain.record.domain.entity.Record;
-import com.Main.domain.user.application.dto.UserProfileResponse;
+import com.Main.domain.user.application.dto.response.UserProfileResponse;
 import com.Main.domain.user.domain.entity.User;
 import com.Main.domain.user.domain.repository.UserRepository;
 import com.Main.domain.user.domain.service.GradeFormatter;
