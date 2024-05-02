@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import static com.Main.global.error.status.ErrorStatus.USER_NOT_FOUND;
 
@@ -19,11 +20,26 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User findById(Long id) {
-        return userRepositoryJPA.findById(id).orElseThrow( () -> new GeneralException(USER_NOT_FOUND));
+        return userRepositoryJPA.findById(id).orElseThrow(() -> new GeneralException(USER_NOT_FOUND));
     }
 
     @Override
     public List<Block> findByRequestingUserId(Long userId) {
         return blockRepositoryJPA.findByRequestingUserId(userId);
+    }
+
+    @Override
+    public Block saveBlock(User requestingUser, User blockedUser) {
+        return blockRepositoryJPA.save(Block.of(null, requestingUser, blockedUser));
+    }
+
+    @Override
+    public void deleteBlock(Block block) {
+        blockRepositoryJPA.delete(block);
+    }
+
+    @Override
+    public Optional<Block> findByRequestingUserIdAndBlockedUserId(Long requestingUserId, Long blockedUserId) {
+        return blockRepositoryJPA.findByRequestingUserIdAndBlockedUserId(requestingUserId, blockedUserId);
     }
 }
