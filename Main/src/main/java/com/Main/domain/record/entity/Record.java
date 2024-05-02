@@ -1,6 +1,6 @@
-package com.Main.domain.record.domain.entity;
+package com.Main.domain.record.entity;
 
-import com.Main.domain.user.domain.entity.User;
+import com.Main.domain.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,7 +15,6 @@ public class Record {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer score; // 점수
     private Integer participant; // 출전
     private Integer victory; // 다승
     private Integer goal; // 골
@@ -26,7 +25,8 @@ public class Record {
     @OneToOne(mappedBy = "record")
     private User user;
 
-    public static Record of(Long id, Integer score, Integer participant, Integer victory, Integer goal, Integer assist, Integer defence, Integer pom, User user) {
-        return new Record(id, score, participant, victory, goal, assist, defence, pom, user);
+
+    public static Record of(Long id, Integer participant, Integer victory, Integer goal, Integer assist, Integer defence, Integer pom, User user) {
+        return new Record(id, participant, victory, goal, assist, defence, pom, user);
     }
 }

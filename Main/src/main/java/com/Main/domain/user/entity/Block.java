@@ -1,4 +1,4 @@
-package com.Main.domain.user.domain.entity;
+package com.Main.domain.user.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
