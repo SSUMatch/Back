@@ -25,6 +25,5 @@ public record RecordDto(
                 record.getPom()
         );
     }
-    
 }
 
