@@ -16,5 +16,8 @@ public class MatchesReader {
     public Page<Matches> getMatchesWithDate(Pageable pageable,String day){
         return matchesRepository.findAllByDate(pageable, day);
     }
+    public Matches findById(Long matchesId){
+        return matchesRepository.findById(matchesId);
+    }
 
 }

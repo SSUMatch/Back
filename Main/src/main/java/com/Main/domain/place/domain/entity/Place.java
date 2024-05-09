@@ -1,7 +1,10 @@
-package com.Main.domain.place.entity;
+package com.Main.domain.place.domain.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "place")
