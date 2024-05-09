@@ -18,9 +18,14 @@ public enum ErrorStatus implements BaseErrorCode {
 
     //User 관련 에러
     USER_NOT_FOUND(HttpStatus.NOT_FOUND, "USER_001", "사용자를 찾을 수 없습니다."),
+
     //Matches 관련 에러
     MATCHES_NOT_FOUND(HttpStatus.NOT_FOUND, "MATCHES_001", "매치를 찾을 수 없습니다."),
     PLACE_NOT_FOUND(HttpStatus.NOT_FOUND, "PLACE_001", "구장을 찾을 수 없습니다."),
+
+    //Block 관련 에러
+    BLOCK_NOT_FOUND(HttpStatus.NOT_FOUND, "BLOCK_001", "차단이 존재하지 않습니다. "),
+    ALREADY_BLOCK_EXIST(HttpStatus.CONFLICT, "BLOCK_002", "이미 차단한 유저입니다."),
 
     //Group 관련 에러
     GROUP_NOT_FOUND(HttpStatus.NOT_FOUND,"GROUP_001","그룹을 찾을 수 없습니다."),
