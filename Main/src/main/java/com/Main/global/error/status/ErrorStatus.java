@@ -21,6 +21,7 @@ public enum ErrorStatus implements BaseErrorCode {
 
     //Matches 관련 에러
     MATCHES_NOT_FOUND(HttpStatus.NOT_FOUND, "MATCHES_001", "매치를 찾을 수 없습니다."),
+    PLACE_NOT_FOUND(HttpStatus.NOT_FOUND, "PLACE_001", "구장을 찾을 수 없습니다."),
 
     //Block 관련 에러
     BLOCK_NOT_FOUND(HttpStatus.NOT_FOUND, "BLOCK_001", "차단이 존재하지 않습니다. "),

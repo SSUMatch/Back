@@ -1,7 +1,9 @@
 package com.Main.domain.favorite.entity;
 
-import com.Main.domain.place.entity.Place;
-import com.Main.domain.user.domain.entity.User;
+
+import com.Main.domain.place.domain.entity.Place;
+import com.Main.domain.user.entity.User;
+
 import jakarta.persistence.*;
 import lombok.*;
 
