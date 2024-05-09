@@ -7,7 +7,8 @@ import com.Main.domain.match.domain.service.MatchesManager;
 import com.Main.domain.match.domain.service.MatchesReader;
 import com.Main.domain.place.domain.entity.Place;
 import com.Main.domain.place.domain.service.PlaceReader;
-import com.Main.domain.user.entity.User;
+
+import com.Main.domain.user.domain.entity.User;
 import com.Main.domain.user.service.UserReader;
 import com.Main.domain.userMatch.domain.entity.UserMatch;
 import com.Main.domain.userMatch.domain.service.UserMatchReader;
