@@ -3,16 +3,14 @@ package com.Main.domain.user.domain.entity;
 import com.Main.domain.record.domain.entity.Record;
 import com.Main.domain.team.entity.Team;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "user")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@Setter
 public class User {
 
     @Id

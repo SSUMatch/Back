@@ -24,7 +24,7 @@ public class UserService {
         String grade;
 
         if (record != null) {
-            grade = gradeFormatter.calculateGrade(record.getScore()); // 점수를 기반으로 등급 계산
+            grade = gradeFormatter.calculateGrade((int) record.getScore()); // 점수를 기반으로 등급 계산
         } else {
             grade = "비기너";
         }

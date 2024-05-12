@@ -16,7 +16,7 @@ public record RecordDto(
             return new RecordDto(0, 0, 0, 0, 0, 0, 0); // 모든 필드를 기본 값으로 설정
         }
         return new RecordDto(
-                record.getScore(),
+                (int) record.getScore(),
                 record.getParticipant(),
                 record.getVictory(),
                 record.getGoal(),
