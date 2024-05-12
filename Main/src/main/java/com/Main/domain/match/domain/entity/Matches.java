@@ -2,6 +2,7 @@ package com.Main.domain.match.domain.entity;
 
 
 import com.Main.domain.place.domain.entity.Place;
+import com.Main.domain.team.entity.TeamType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -36,9 +37,12 @@ public class Matches {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "manager_id")
     private Manager manager;
+    @Enumerated(EnumType.STRING)
+    private TeamType winner;
+//    private String winner;
 
 
-    public static Matches of(Long id, LocalDateTime date, LocalTime start_time, LocalTime end_time, String number, MatchType type, MatchSize size, MatchGender gender, Place place, Manager manager) {
-        return new Matches(id, date, start_time, end_time, number, type, size, gender, place, manager);
+    public static Matches of(Long id, LocalDateTime date, LocalTime start_time, LocalTime end_time, String number, MatchType type, MatchSize size, MatchGender gender, Place place, Manager manager, TeamType winner) {
+        return new Matches(id, date, start_time, end_time, number, type, size, gender, place, manager,winner);
     }
 }

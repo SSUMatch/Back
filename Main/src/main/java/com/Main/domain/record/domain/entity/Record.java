@@ -9,13 +9,14 @@ import lombok.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@Setter
 public class Record {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer score; // 점수
+    private double score; // 점수
     private Integer participant; // 출전
     private Integer victory; // 다승
     private Integer goal; // 골

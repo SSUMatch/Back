@@ -1,5 +1,6 @@
 package com.Main.domain.quarter.entity;
 
+import com.Main.domain.match.domain.entity.Matches;
 import com.Main.domain.userMatch.domain.entity.UserMatch;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -29,9 +30,13 @@ public class QuarterInfo {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "quarter_id")
     private Quarter quarter;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "matches_id")
+    private Matches matches;
 
 
-    public static QuarterInfo of(Long id, Integer goal, Integer assist, Integer defence, UserMatch userMatch, Quarter quarter) {
-        return new QuarterInfo(id, goal, assist, defence,userMatch, quarter);
+
+    public static QuarterInfo of(Long id, Integer goal, Integer assist, Integer defence, UserMatch userMatch, Quarter quarter,Matches matches) {
+        return new QuarterInfo(id, goal, assist, defence,userMatch, quarter,matches);
     }
 }

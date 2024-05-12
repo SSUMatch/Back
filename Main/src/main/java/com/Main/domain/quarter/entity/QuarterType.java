@@ -6,5 +6,7 @@ public enum QuarterType {
     FIRST_QUARTER,
     SECOND_QUARTER,
     THIRD_QUARTER,
-    FOURTH_QUARTER
+    FOURTH_QUARTER,
+    FIFTH_QUARTER,
+    SIXTH_QUARTER
 }
