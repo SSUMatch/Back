@@ -70,6 +70,7 @@ public class EloRatingService {
 //            return 1 / (1 + Math.pow(10, exponent));
 //        }
 //    }
+    //
 private double calculateActualScore(UserMatch userMatch, Matches match) {
     double goalScore = getGoalScore(userMatch, match);
     double assistScore = getAssistScore(userMatch, match);
