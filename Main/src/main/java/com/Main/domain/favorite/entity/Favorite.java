@@ -1,4 +1,4 @@
-package com.Main.domain.favorite.domain.entity;
+package com.Main.domain.favorite.entity;
 
 
 import com.Main.domain.place.domain.entity.Place;
@@ -26,7 +26,8 @@ public class Favorite {
     @JoinColumn(name = "place_id", nullable = false)
     private Place place;  // 구장
 
-    public static Favorite of(User user, Place place) {
-        return new Favorite(null, user, place);
+
+    public static Favorite of(Long id, User user, Place place) {
+        return new Favorite(id, user, place);
     }
 }
