@@ -25,6 +25,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 import static com.Main.global.error.status.ErrorStatus.FAVORITE_NOT_FOUND;
@@ -57,9 +58,12 @@ public class MatchService {
         Long placeId = favorite.getPlace().getId();
         List<Matches> matches = matchesRepository.findByPlaceIdOrderByDateAndStartTime(placeId);
 
-        return matches.stream()
+        Map<LocalDate, List<SimpleMatchDateInfoResponse>> matchesGroupedByDate = matches.stream()
                 .map(this::toSimpleMatchInfoResponse)
                 .collect(Collectors.groupingBy(SimpleMatchDateInfoResponse::getDate));
+
+        // TreeMap을 사용하여 키를 오름차순으로 정렬
+        return new TreeMap<>(matchesGroupedByDate);
     }
 
     private SimpleMatchDateInfoResponse toSimpleMatchInfoResponse(Matches match) {
