@@ -25,4 +25,9 @@ public class MatchesRepositoryImpl implements MatchesRepository{
     public Matches findById(Long matchesId){
         return matchesRepositoryJpa.findById(matchesId).orElseThrow( () -> new GeneralException(MATCHES_NOT_FOUND));
     }
+
+    @Override
+    public List<Matches> findByPlaceIdOrderByDateAndStartTime(Long placeId) {
+        return matchesRepositoryJpa.findByPlaceIdOrderByDateAndStartTime(placeId);
+    }
 }

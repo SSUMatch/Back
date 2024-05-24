@@ -28,7 +28,8 @@ public enum ErrorStatus implements BaseErrorCode {
     ALREADY_BLOCK_EXIST(HttpStatus.CONFLICT, "BLOCK_002", "이미 차단한 유저입니다."),
 
     //Favorite 관련 에러
-    ALREADY_FAVORITE_EXIST(HttpStatus.CONFLICT, "BLOCK_002", "이미 존재하는 즐겨찾기입니다."),
+    FAVORITE_NOT_FOUND(HttpStatus.NOT_FOUND, "FAVORITE_001", "즐겨찾기를 찾을 수 없습니다. "),
+    ALREADY_FAVORITE_EXIST(HttpStatus.CONFLICT, "FAVORITE_002", "이미 존재하는 즐겨찾기입니다."),
 
     //Group 관련 에러
     GROUP_NOT_FOUND(HttpStatus.NOT_FOUND,"GROUP_001","그룹을 찾을 수 없습니다."),

@@ -4,6 +4,7 @@ import com.Main.domain.favorite.application.dto.AddFavoriteResponse;
 import com.Main.domain.favorite.application.dto.FavoriteResponse;
 import com.Main.domain.favorite.domain.entity.Favorite;
 import com.Main.domain.favorite.domain.repository.FavoriteRepository;
+import com.Main.domain.match.domain.repository.MatchesRepository;
 import com.Main.domain.place.domain.entity.Place;
 import com.Main.domain.place.domain.repository.PlaceRepository;
 import com.Main.domain.user.domain.entity.User;
@@ -30,6 +31,7 @@ public class FavoriteService {
     private final FavoriteRepository favoriteRepository;
     private final UserRepository userRepository;
     private final PlaceRepository placeRepository;
+    private final MatchesRepository matchesRepository;
     private final KakaoMapService kaKaoMapService;
 
     @Transactional(readOnly = true)
@@ -65,4 +67,5 @@ public class FavoriteService {
         }
         favoriteRepository.deleteAll(favorites);
     }
+
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+
 @RequiredArgsConstructor
 @Repository
 public class FavoriteRepositoryImpl implements FavoriteRepository {
@@ -18,6 +19,11 @@ public class FavoriteRepositoryImpl implements FavoriteRepository {
     @Override
     public List<Favorite> findByUserId(Long userId) {
         return favoriteRepositoryJpa.findByUserId(userId);
+    }
+
+    @Override
+    public Optional<Favorite> findById(Long favoriteId) {
+        return favoriteRepositoryJpa.findById(favoriteId);
     }
 
     @Override
