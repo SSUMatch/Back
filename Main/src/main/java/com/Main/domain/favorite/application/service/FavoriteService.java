@@ -20,7 +20,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static com.Main.global.error.status.ErrorStatus.ALREADY_FAVORITE_EXIST;
-import static com.Main.global.error.status.ErrorStatus.BLOCK_NOT_FOUND;
 
 @Service
 @Transactional

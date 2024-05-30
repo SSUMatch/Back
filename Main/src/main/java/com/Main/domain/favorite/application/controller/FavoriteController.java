@@ -39,11 +39,11 @@ public class FavoriteController {
         return ApiResponse.onSuccess();
     }
 
-    @GetMapping("/{userId}/favorites/{favoriteId}/matches")
+    @GetMapping("/{userId}/favorites/{placeId}/matches")
     public ApiResponse<Map<LocalDate, List<SimpleMatchDateInfoResponse>>> getMatchesByFavorite(
             @PathVariable("userId") Long userId,
-            @PathVariable("favoriteId") Long favoriteId) {
-        Map<LocalDate, List<SimpleMatchDateInfoResponse>> matchesGroupedByDate = matchService.getMatchesByFavorite(favoriteId);
+            @PathVariable("placeId") Long placeId) {
+        Map<LocalDate, List<SimpleMatchDateInfoResponse>> matchesGroupedByDate = matchService.getMatchesByFavorite(placeId);
         return ApiResponse.onSuccess(matchesGroupedByDate);
     }
 
