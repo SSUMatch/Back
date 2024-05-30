@@ -17,9 +17,12 @@ public class Place {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String address; // 주소
+    private double latitude; // 위도
+    private double longitude; // 경도
+
     private String name; // 이름
     private String image; // 구장 사진
-    private String address; // 주소
     private String number; // 전화번호
 
     private Integer parking; // 주차
@@ -28,8 +31,7 @@ public class Place {
     private boolean shower_room; // 샤워시설
 
 
-
-    public static Place of(Long id, String name, String image, String address, String number, Integer parking, boolean toilet, boolean rental, boolean shower_room) {
-        return new Place(id, name, image, address, number, parking, toilet, rental, shower_room);
+    public static Place of(Long id, String address, double latitude, double longitude, String name, String image, String number, Integer parking, boolean toilet, boolean rental, boolean shower_room) {
+        return new Place(id, address, latitude, longitude, name, image, number, parking, toilet, rental, shower_room);
     }
 }
