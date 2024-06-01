@@ -1,4 +1,4 @@
-package com.Main.domain.favorite.application.service;
+package com.Main.service.kakaomap;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

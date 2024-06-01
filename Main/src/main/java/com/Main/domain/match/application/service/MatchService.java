@@ -1,7 +1,5 @@
 package com.Main.domain.match.application.service;
 
-import com.Main.domain.favorite.domain.entity.Favorite;
-import com.Main.domain.favorite.domain.repository.FavoriteRepository;
 import com.Main.domain.match.application.dto.*;
 import com.Main.domain.match.domain.entity.Matches;
 import com.Main.domain.match.domain.repository.MatchesRepository;
@@ -9,14 +7,12 @@ import com.Main.domain.match.domain.service.MatchesFormatter;
 import com.Main.domain.match.domain.service.MatchesManager;
 import com.Main.domain.match.domain.service.MatchesReader;
 import com.Main.domain.place.domain.entity.Place;
-import com.Main.domain.place.domain.repository.PlaceRepository;
 import com.Main.domain.place.domain.service.PlaceReader;
 
 import com.Main.domain.user.domain.entity.User;
 import com.Main.domain.user.service.UserReader;
 import com.Main.domain.userMatch.domain.entity.UserMatch;
 import com.Main.domain.userMatch.domain.service.UserMatchReader;
-import com.Main.global.error.exception.GeneralException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -28,9 +24,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
-
-import static com.Main.global.error.status.ErrorStatus.FAVORITE_NOT_FOUND;
-import static com.Main.global.error.status.ErrorStatus.PLACE_NOT_FOUND;
 
 @Service
 @RequiredArgsConstructor
