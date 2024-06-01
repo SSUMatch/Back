@@ -1,7 +1,5 @@
 package com.Main.domain.match.application.service;
 
-import com.Main.domain.favorite.domain.entity.Favorite;
-import com.Main.domain.favorite.domain.repository.FavoriteRepository;
 import com.Main.domain.match.application.dto.*;
 import com.Main.domain.match.domain.entity.Matches;
 import com.Main.domain.match.domain.repository.MatchesRepository;
@@ -15,7 +13,6 @@ import com.Main.domain.user.domain.entity.User;
 import com.Main.domain.user.service.UserReader;
 import com.Main.domain.userMatch.domain.entity.UserMatch;
 import com.Main.domain.userMatch.domain.service.UserMatchReader;
-import com.Main.global.error.exception.GeneralException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -28,8 +25,6 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 
-import static com.Main.global.error.status.ErrorStatus.FAVORITE_NOT_FOUND;
-
 @Service
 @RequiredArgsConstructor
 public class MatchService {
@@ -39,7 +34,6 @@ public class MatchService {
     private final PlaceReader placeReader;
     private final UserMatchReader userMatchReader;
     private final UserReader userReader;
-    private final FavoriteRepository favoriteRepository;
     private final MatchesRepository matchesRepository;
 
     public List<SimpleMatchInfoResponse> getMatchInfoList(int page, int take, String date){
@@ -53,9 +47,7 @@ public class MatchService {
         )).toList();
     }
 
-    public Map<LocalDate, List<SimpleMatchDateInfoResponse>> getMatchesByFavorite(Long favoriteId) {
-        Favorite favorite = favoriteRepository.findById(favoriteId).orElseThrow(() -> new GeneralException(FAVORITE_NOT_FOUND));
-        Long placeId = favorite.getPlace().getId();
+    public Map<LocalDate, List<SimpleMatchDateInfoResponse>> getMatchesByFavorite(Long placeId) {
         List<Matches> matches = matchesRepository.findByPlaceIdOrderByDateAndStartTime(placeId);
 
         Map<LocalDate, List<SimpleMatchDateInfoResponse>> matchesGroupedByDate = matches.stream()

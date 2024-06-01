@@ -4,12 +4,13 @@ import com.Main.domain.favorite.application.dto.AddFavoriteResponse;
 import com.Main.domain.favorite.application.dto.FavoriteResponse;
 import com.Main.domain.favorite.domain.entity.Favorite;
 import com.Main.domain.favorite.domain.repository.FavoriteRepository;
-import com.Main.domain.match.domain.repository.MatchesRepository;
 import com.Main.domain.place.domain.entity.Place;
 import com.Main.domain.place.domain.repository.PlaceRepository;
+import com.Main.domain.place.domain.repository.PlaceRepositoryJpa;
 import com.Main.domain.user.domain.entity.User;
 import com.Main.domain.user.domain.repository.UserRepository;
 import com.Main.global.error.exception.GeneralException;
+import com.Main.service.kakaomap.KakaoMapService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static com.Main.global.error.status.ErrorStatus.ALREADY_FAVORITE_EXIST;
-import static com.Main.global.error.status.ErrorStatus.BLOCK_NOT_FOUND;
 
 @Service
 @Transactional
@@ -31,7 +31,6 @@ public class FavoriteService {
     private final FavoriteRepository favoriteRepository;
     private final UserRepository userRepository;
     private final PlaceRepository placeRepository;
-    private final MatchesRepository matchesRepository;
     private final KakaoMapService kaKaoMapService;
 
     @Transactional(readOnly = true)

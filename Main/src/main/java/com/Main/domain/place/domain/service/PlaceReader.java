@@ -2,6 +2,7 @@ package com.Main.domain.place.domain.service;
 
 import com.Main.domain.place.domain.entity.Place;
 import com.Main.domain.place.domain.repository.PlaceRepository;
+import com.Main.domain.place.domain.repository.PlaceRepositoryJpa;
 import com.Main.global.error.exception.GeneralException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
