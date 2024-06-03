@@ -5,7 +5,6 @@ DEFAULT_CONF=" /etc/nginx/nginx.conf"
 
 # green up
 if [ -z $IS_GREEN_EXIST ];then
-  docker-compose down
   echo ">>> green image pull"
   docker-compose pull green
   echo ">>> green container up"
@@ -28,7 +27,6 @@ if [ -z $IS_GREEN_EXIST ];then
 
 # blue up
 else
-  docker-compose down
   echo ">>> blue image pull"
   docker-compose pull blue
   echo ">>> blue container up"
