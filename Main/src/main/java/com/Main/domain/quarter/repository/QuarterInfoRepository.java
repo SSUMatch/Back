@@ -8,4 +8,6 @@ import java.util.List;
 public interface QuarterInfoRepository extends JpaRepository<QuarterInfo,Long> {
     List<QuarterInfo> findAllByMatchesId(Long matchesId);
     List<QuarterInfo> findAllByQuarterId(Long quarterId);
+    List<QuarterInfo> findAllByMatchesIdAndQuarterId(Long matchesId, Long quarterId);
+    List<QuarterInfo> findAllByUserMatchId(Long userMatchId);
 }

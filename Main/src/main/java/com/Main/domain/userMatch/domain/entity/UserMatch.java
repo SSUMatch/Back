@@ -23,7 +23,7 @@ public class UserMatch {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private TeamType type; // 게임 종류
+    private TeamType teamType; // 조끼 색깔
 
     private Integer number; // 조끼 번호
 
