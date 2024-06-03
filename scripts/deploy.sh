@@ -1,23 +1,28 @@
 #!/bin/bash
 
 IS_GREEN_EXIST=$(docker ps | grep green)
-DEFAULT_CONF=" /etc/nginx/nginx.conf"
+DEFAULT_CONF="/etc/nginx/nginx.conf"
 
 # green up
+<<<<<<< HEAD
 if [ -z $IS_GREEN_EXIST ];then
+=======
+if [ -z "$IS_GREEN_EXIST" ]; then
+  docker-compose down
+>>>>>>> 24a2b0157d8105374940ce705623f1631ec76764
   echo ">>> green image pull"
   docker-compose pull green
   echo ">>> green container up"
   docker-compose up -d green
-  while [ 1 = 1 ]; do
+  while true; do
     echo ">>> health check"
     sleep 3
-    REQUEST=$(curl http://127.0.0.1:8082)
+    REQUEST=$(curl -s http://127.0.0.1:8082)
     if [ -n "$REQUEST" ]; then
       echo ">>> health check success !"
-      break;
+      break
     fi
-  done;
+  done
   sleep 3
   echo ">>> nginx restart"
   sudo cp /etc/nginx/nginx.green.conf /etc/nginx/nginx.conf
@@ -31,15 +36,15 @@ else
   docker-compose pull blue
   echo ">>> blue container up"
   docker-compose up -d blue
-  while [ 1 = 1 ]; do
+  while true; do
     echo ">>> health check"
     sleep 3
-    REQUEST=$(curl http://127.0.0.1:8081)
+    REQUEST=$(curl -s http://127.0.0.1:8081)
     if [ -n "$REQUEST" ]; then
       echo ">>> health check success !"
-      break;
+      break
     fi
-  done;
+  done
   sleep 3
   echo ">>> nginx restart"
   sudo cp /etc/nginx/nginx.blue.conf /etc/nginx/nginx.conf
