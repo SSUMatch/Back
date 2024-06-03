@@ -40,9 +40,9 @@ public class Matches {
     @Enumerated(EnumType.STRING)
     private TeamType winner;
 //    private String winner;
+    private Long pom;
 
-
-    public static Matches of(Long id, LocalDateTime date, LocalTime start_time, LocalTime end_time, String number, MatchType type, MatchSize size, MatchGender gender, Place place, Manager manager, TeamType winner) {
-        return new Matches(id, date, start_time, end_time, number, type, size, gender, place, manager,winner);
+    public static Matches of(Long id, LocalDateTime date, LocalTime start_time, LocalTime end_time, String number, MatchType type, MatchSize size, MatchGender gender, Place place, Manager manager, TeamType winner, Long pom) {
+        return new Matches(id, date, start_time, end_time, number, type, size, gender, place, manager,winner, pom);
     }
 }
