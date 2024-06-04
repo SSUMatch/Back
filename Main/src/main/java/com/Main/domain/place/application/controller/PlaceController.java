@@ -28,8 +28,8 @@ public class PlaceController {
 
     @GetMapping("/{placeId}/matches")
     public ApiResponse<Map<String, List<SimpleMatchDateInfoResponse>>> getMatchesByFavorite(@PathVariable("placeId") Long placeId) {
-        Map<String, List<SimpleMatchDateInfoResponse>> matchesGroupByDate = matchService.getMatchesByFavorite(placeId);
-        return ApiResponse.onSuccess(matchesGroupByDate);
+        Map<String, List<SimpleMatchDateInfoResponse>> matchesGroupedByDate = matchService.getMatchesByFavorite(placeId);
+        return ApiResponse.onSuccess(matchesGroupedByDate);
     }
 
 }
