@@ -59,7 +59,6 @@ public class MatchService {
         Map<String, List<SimpleMatchDateInfoResponse>> matchesGroupedByDate = matches.stream()
                 .map(this::toSimpleMatchInfoResponse)
                 .collect(Collectors.groupingBy(SimpleMatchDateInfoResponse::getDate));
-
         // TreeMap을 사용하여 키를 오름차순으로 정렬
         return new TreeMap<>(matchesGroupedByDate);
     }
