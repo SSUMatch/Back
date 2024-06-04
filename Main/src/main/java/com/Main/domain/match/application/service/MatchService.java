@@ -47,10 +47,10 @@ public class MatchService {
         )).toList();
     }
 
-    public Map<LocalDate, List<SimpleMatchDateInfoResponse>> getMatchesByFavorite(Long placeId) {
+    public Map<String, List<SimpleMatchDateInfoResponse>> getMatchesByFavorite(Long placeId) {
         List<Matches> matches = matchesRepository.findByPlaceIdOrderByDateAndStartTime(placeId);
 
-        Map<LocalDate, List<SimpleMatchDateInfoResponse>> matchesGroupedByDate = matches.stream()
+        Map<String, List<SimpleMatchDateInfoResponse>> matchesGroupedByDate = matches.stream()
                 .map(this::toSimpleMatchInfoResponse)
                 .collect(Collectors.groupingBy(SimpleMatchDateInfoResponse::getDate));
 
