@@ -9,7 +9,6 @@ import com.Main.global.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -28,8 +27,7 @@ public class PlaceController {
     }
 
     @GetMapping("/{placeId}/matches")
-    public ApiResponse<Map<String, List<SimpleMatchDateInfoResponse>>> getMatchesByFavorite(
-            @PathVariable("placeId") Long placeId) {
+    public ApiResponse<Map<String, List<SimpleMatchDateInfoResponse>>> getMatchesByFavorite(@PathVariable("placeId") Long placeId) {
         Map<String, List<SimpleMatchDateInfoResponse>> matchesGroupedByDate = matchService.getMatchesByFavorite(placeId);
         return ApiResponse.onSuccess(matchesGroupedByDate);
     }
