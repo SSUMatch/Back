@@ -1,6 +1,7 @@
 package com.Main.domain.match.application.service;
 
 import com.Main.domain.match.application.dto.*;
+import com.Main.domain.match.domain.adapter.MatchesManagerAdapter;
 import com.Main.domain.match.domain.entity.Matches;
 import com.Main.domain.match.domain.repository.MatchesRepository;
 import com.Main.domain.match.domain.service.MatchesFormatter;
@@ -9,6 +10,9 @@ import com.Main.domain.match.domain.service.MatchesReader;
 import com.Main.domain.place.domain.entity.Place;
 import com.Main.domain.place.domain.service.PlaceReader;
 
+import com.Main.domain.record.domain.entity.Record;
+import com.Main.domain.record.domain.service.RecordManager;
+import com.Main.domain.record.domain.service.RecordReader;
 import com.Main.domain.user.domain.entity.User;
 import com.Main.domain.user.service.UserReader;
 import com.Main.domain.userMatch.domain.entity.UserMatch;
@@ -35,6 +39,8 @@ public class MatchService {
     private final UserMatchReader userMatchReader;
     private final UserReader userReader;
     private final MatchesRepository matchesRepository;
+    private final RecordReader recordReader;
+    private final RecordManager recordManager;
 
     public List<SimpleMatchInfoResponse> getMatchInfoList(int page, int take, String date){
         Page<Matches> matchesList = matchesReader.getMatchesWithDate(setPageable(page, take),date);
@@ -72,8 +78,9 @@ public class MatchService {
         Place place = placeReader.findById(matches.getPlace().getId());
         List<UserMatch> userMatches =  userMatchReader.findAllByMatchId(matchesId);
         List<User> users = userMatches.stream().map(userMatch -> userReader.findById(userMatch.getUser().getId())).toList();
+        MatchData matchData = createMatchData(userMatches);
         return MatchDetailResponse.of(place.getImage(),
-                MatchData.of("세미프로",null),
+                matchData,
                 PlaceInfo.of(matches.getGender(),matches.getType(), matches.getSize(),"12~18"),
                 MatchInfo.of(true, true, place.isRental(), place.getParking(),place.isShower_room(),place.isToilet()),
                 matches.getDate(),
@@ -83,6 +90,13 @@ public class MatchService {
 
 
                 );
+    }
+    private MatchData createMatchData(List<UserMatch> userMatches){
+        List<User> users = userMatches.stream().map(userMatch -> userReader.findById(userMatch.getUser().getId())).toList();
+        List<Record> records = users.stream().map(user -> recordReader.getRecordByUserId(user.getId())).toList();
+        String expect = recordManager.getExpectRate(records);
+        List<LevelDto> levelDtos = recordManager.getLevelDtos(records);
+        return MatchData.of(expect,levelDtos);
     }
     private Pageable setPageable(int page, int take){
         return PageRequest.of(page, take);

@@ -30,6 +30,8 @@ public class QRecord extends EntityPathBase<Record> {
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
+    public final EnumPath<Level> level = createEnum("level", Level.class);
+
     public final NumberPath<Integer> participant = createNumber("participant", Integer.class);
 
     public final NumberPath<Integer> pom = createNumber("pom", Integer.class);
