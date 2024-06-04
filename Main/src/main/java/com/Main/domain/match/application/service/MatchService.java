@@ -1,7 +1,6 @@
 package com.Main.domain.match.application.service;
 
 import com.Main.domain.match.application.dto.*;
-import com.Main.domain.match.domain.adapter.MatchesManagerAdapter;
 import com.Main.domain.match.domain.entity.Matches;
 import com.Main.domain.match.domain.repository.MatchesRepository;
 import com.Main.domain.match.domain.service.MatchesFormatter;
@@ -23,7 +22,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
