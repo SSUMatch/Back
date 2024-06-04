@@ -36,6 +36,8 @@ public class QMatches extends EntityPathBase<Matches> {
 
     public final com.Main.domain.place.domain.entity.QPlace place;
 
+    public final NumberPath<Long> pom = createNumber("pom", Long.class);
+
     public final EnumPath<MatchSize> size = createEnum("size", MatchSize.class);
 
     public final TimePath<java.time.LocalTime> start_time = createTime("start_time", java.time.LocalTime.class);

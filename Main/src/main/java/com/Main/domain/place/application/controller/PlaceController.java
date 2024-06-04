@@ -28,9 +28,9 @@ public class PlaceController {
     }
 
     @GetMapping("/{placeId}/matches")
-    public ApiResponse<Map<LocalDate, List<SimpleMatchDateInfoResponse>>> getMatchesByFavorite(
+    public ApiResponse<Map<String, List<SimpleMatchDateInfoResponse>>> getMatchesByFavorite(
             @PathVariable("placeId") Long placeId) {
-        Map<LocalDate, List<SimpleMatchDateInfoResponse>> matchesGroupedByDate = matchService.getMatchesByFavorite(placeId);
+        Map<String, List<SimpleMatchDateInfoResponse>> matchesGroupedByDate = matchService.getMatchesByFavorite(placeId);
         return ApiResponse.onSuccess(matchesGroupedByDate);
     }
 

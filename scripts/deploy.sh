@@ -4,8 +4,12 @@ IS_GREEN_EXIST=$(docker ps | grep green)
 DEFAULT_CONF="/etc/nginx/nginx.conf"
 
 # green up
+<<<<<<< HEAD
+if [ -z $IS_GREEN_EXIST ];then
+=======
 if [ -z "$IS_GREEN_EXIST" ]; then
   docker-compose down
+>>>>>>> 24a2b0157d8105374940ce705623f1631ec76764
   echo ">>> green image pull"
   docker-compose pull green
   echo ">>> green container up"
@@ -28,7 +32,6 @@ if [ -z "$IS_GREEN_EXIST" ]; then
 
 # blue up
 else
-  docker-compose down
   echo ">>> blue image pull"
   docker-compose pull blue
   echo ">>> blue container up"

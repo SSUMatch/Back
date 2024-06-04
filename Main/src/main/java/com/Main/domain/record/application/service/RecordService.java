@@ -42,7 +42,8 @@ public class RecordService {
                         createQuarterRecordResponses(userId, matches),
                         userMatchReader.getTeam(matches.getId(), TeamType.RED).stream().map(userMatch -> SimpleTeamResponse.of(userMatch)).toList(),
                         userMatchReader.getTeam(matches.getId(), TeamType.GREEN).stream().map(userMatch -> SimpleTeamResponse.of(userMatch)).toList(),
-                        userMatchReader.getTeam(matches.getId(), TeamType.BLUE).stream().map(userMatch -> SimpleTeamResponse.of(userMatch)).toList()
+                        userMatchReader.getTeam(matches.getId(), TeamType.BLUE).stream().map(userMatch -> SimpleTeamResponse.of(userMatch)).toList(),
+                        true
                 )).toList();
         return recordResponseDtos;
     }
