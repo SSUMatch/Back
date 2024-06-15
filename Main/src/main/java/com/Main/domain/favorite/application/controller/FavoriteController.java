@@ -38,13 +38,4 @@ public class FavoriteController {
         favoriteService.deleteFavorites(userId, favoriteIds);
         return ApiResponse.onSuccess();
     }
-
-    @GetMapping("/{userId}/favorites/{placeId}/matches")
-    public ApiResponse<Map<String, List<SimpleMatchDateInfoResponse>>> getMatchesByFavorite(
-            @PathVariable("userId") Long userId,
-            @PathVariable("placeId") Long placeId) {
-        Map<String, List<SimpleMatchDateInfoResponse>> matchesGroupedByDate = matchService.getMatchesByFavorite(placeId);
-        return ApiResponse.onSuccess(matchesGroupedByDate);
-    }
-
 }
