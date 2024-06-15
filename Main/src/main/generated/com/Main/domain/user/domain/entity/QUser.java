@@ -22,9 +22,13 @@ public class QUser extends EntityPathBase<User> {
 
     public static final QUser user = new QUser("user");
 
+    public final StringPath account = createString("account");
+
     public final NumberPath<Integer> age = createNumber("age", Integer.class);
 
     public final StringPath description = createString("description");
+
+    public final StringPath gender = createString("gender");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -36,7 +40,13 @@ public class QUser extends EntityPathBase<User> {
 
     public final StringPath number = createString("number");
 
+    public final StringPath password = createString("password");
+
+    public final StringPath position = createString("position");
+
     public final com.Main.domain.record.domain.entity.QRecord record;
+
+    public final StringPath refreshToken = createString("refreshToken");
 
     public final com.Main.domain.team.entity.QTeam team;
 

@@ -13,7 +13,7 @@ import com.Main.domain.record.domain.entity.Record;
 import com.Main.domain.record.domain.service.RecordManager;
 import com.Main.domain.record.domain.service.RecordReader;
 import com.Main.domain.user.domain.entity.User;
-import com.Main.domain.user.service.UserReader;
+import com.Main.domain.user.domain.service.UserReader;
 import com.Main.domain.userMatch.domain.entity.UserMatch;
 import com.Main.domain.userMatch.domain.service.UserMatchReader;
 import lombok.RequiredArgsConstructor;

@@ -19,8 +19,8 @@ public class UserRepositoryImpl implements UserRepository {
     private final BlockRepositoryJPA blockRepositoryJPA;
 
     @Override
-    public User findById(Long id) {
-        return userRepositoryJPA.findById(id).orElseThrow(() -> new GeneralException(USER_NOT_FOUND));
+    public Optional<User> findById(Long id) {
+        return Optional.ofNullable(userRepositoryJPA.findById(id).orElseThrow(() -> new GeneralException(USER_NOT_FOUND)));
     }
 
     @Override
@@ -41,5 +41,13 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public Optional<Block> findByRequestingUserIdAndBlockedUserId(Long requestingUserId, Long blockedUserId) {
         return blockRepositoryJPA.findByRequestingUserIdAndBlockedUserId(requestingUserId, blockedUserId);
+    }
+    @Override
+    public Optional<User> findByAccountAndPassword(String account, String password){
+        return userRepositoryJPA.findByAccountAndPassword(account,password);
+    }
+    @Override
+    public User save(User user){
+        return userRepositoryJPA.save(user);
     }
 }
