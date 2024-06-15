@@ -18,7 +18,7 @@ public class UserService {
     private final GradeFormatter gradeFormatter;
 
     public UserProfileResponse getUserProfile(Long userId) {
-        User user = userRepository.findById(userId);
+        User user = userRepository.findById(userId).orElseThrow();
 
         Record record = user.getRecord();
         String grade;

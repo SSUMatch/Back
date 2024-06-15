@@ -2,20 +2,23 @@ package com.Main.domain.user.domain.entity;
 
 import com.Main.domain.record.domain.entity.Record;
 import com.Main.domain.team.entity.Team;
+import com.Main.domain.user.application.dto.request.SignUpRequest;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity
-@Table(name = "user")
-@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@Builder
+@Getter
 @Setter
+@Table(name = "user")
+@Entity
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String account;
 
     private String name; // 이름
     private Integer age; // 나이
@@ -23,6 +26,10 @@ public class User {
     private String description; //소개
     private String number; // 전화번호
     private String location; //활동 지역
+    private String gender;
+    private String password;
+    private String position;
+    private String refreshToken;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
@@ -31,9 +38,21 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "record_id")
     private Record record;  // 기록
+    public void updateRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
+    }
 
 
-    public static User of(Long id, String name, Integer age, String image, String description, String number, String location, Team team, Record record) {
-        return new User(id, name, age, image, description, number, location, team, record);
+    public static User createUser(SignUpRequest signUpRequest) {
+        return User.builder()
+                .account(signUpRequest.id())
+                .name(signUpRequest.name())
+                .age(signUpRequest.age())
+                .image(null)
+                .description("안녕하세요")
+                .gender(signUpRequest.gender())
+                .password(signUpRequest.password())
+                .position(signUpRequest.position())
+                .build();
     }
 }

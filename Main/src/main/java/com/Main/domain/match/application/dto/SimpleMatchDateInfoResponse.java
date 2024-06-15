@@ -11,7 +11,7 @@ public record SimpleMatchDateInfoResponse(
         String status,
         String date
 ) {
-    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy년 M월 d일 (EE) a h:mm");
+    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy년 M월 d일 (EE)");
     public static SimpleMatchDateInfoResponse of(Long matchId, String time, String name, String type, String status, LocalDate date) {
         String formattedDate = date.format(DATE_TIME_FORMATTER);
         return new SimpleMatchDateInfoResponse(matchId, time, name, type, status, formattedDate);

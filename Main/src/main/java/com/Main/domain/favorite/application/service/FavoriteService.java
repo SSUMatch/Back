@@ -47,7 +47,7 @@ public class FavoriteService {
     }
 
     public AddFavoriteResponse addFavorite(Long userId, String location, String name) {
-        User user = userRepository.findById(userId);
+        User user = userRepository.findById(userId).orElseThrow();
         Place place = placeRepository.findByAddressAndName(location, name);
 
         Optional<Favorite> existingFavorite = favoriteRepository.findByUserAndPlace(user, place);

@@ -38,8 +38,8 @@ public class BlockService {
             throw new GeneralException(ALREADY_BLOCK_EXIST);
         }
 
-        User requestingUser = userRepository.findById(requestingUserId);
-        User blockedUser = userRepository.findById(blockedUserId);
+        User requestingUser = userRepository.findById(requestingUserId).orElseThrow();
+        User blockedUser = userRepository.findById(blockedUserId).orElseThrow();
         return AddBlockResponse.of(userRepository.saveBlock(requestingUser, blockedUser));
     }
 
