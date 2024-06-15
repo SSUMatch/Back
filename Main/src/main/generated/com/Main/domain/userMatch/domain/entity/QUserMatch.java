@@ -28,6 +28,8 @@ public class QUserMatch extends EntityPathBase<UserMatch> {
 
     public final NumberPath<Integer> number = createNumber("number", Integer.class);
 
+    public final NumberPath<Integer> point = createNumber("point", Integer.class);
+
     public final EnumPath<com.Main.domain.team.entity.TeamType> teamType = createEnum("teamType", com.Main.domain.team.entity.TeamType.class);
 
     public final com.Main.domain.user.domain.entity.QUser user;

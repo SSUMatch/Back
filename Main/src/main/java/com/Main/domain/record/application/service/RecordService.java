@@ -10,6 +10,7 @@ import com.Main.domain.quarter.entity.QuarterType;
 import com.Main.domain.quarter.service.QuarterInfoManager;
 import com.Main.domain.quarter.service.QuarterInfoReader;
 import com.Main.domain.quarter.service.QuarterReader;
+import com.Main.domain.record.application.dto.PointResponseDto;
 import com.Main.domain.record.application.dto.RecordResponseDto;
 import com.Main.domain.record.application.dto.SimpleTeamResponse;
 import com.Main.domain.team.entity.TeamType;
@@ -29,6 +30,10 @@ public class RecordService {
     private final QuarterInfoReader quarterInfoReader;
     private final QuarterReader quarterReader;
     private final MatchesFormatter matchesFormatter;
+    public List<PointResponseDto> getMyPoint(Long userId){
+        List<UserMatch> userMatchList = userMatchReader.getAllUserMatchByUserId(userId);
+        return userMatchList.stream().map( userMatch -> PointResponseDto.of(userMatch.getPoint(),userMatch.getMatches().getDate())).toList();
+    }
     public List<RecordResponseDto> getUserRecord(Long userId){
         List<UserMatch> userMatchList = userMatchReader.getAllUserMatchByUserId(userId);
         List<Matches> matchesList = userMatchList.stream().map(userMatch -> userMatch.getMatches()).toList();

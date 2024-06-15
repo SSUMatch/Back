@@ -26,6 +26,7 @@ public class UserMatch {
     private TeamType teamType; // 조끼 색깔
 
     private Integer number; // 조끼 번호
+    private Integer point;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "matches_id")
@@ -37,7 +38,4 @@ public class UserMatch {
 
 
 
-    public static UserMatch of(Long id, TeamType type, Integer number, Matches matches, User user) {
-        return new UserMatch(id, type, number, matches, user);
-    }
 }

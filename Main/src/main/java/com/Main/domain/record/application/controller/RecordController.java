@@ -1,6 +1,7 @@
 package com.Main.domain.record.application.controller;
 
 import com.Main.domain.match.application.dto.MatchDetailResponse;
+import com.Main.domain.record.application.dto.PointResponseDto;
 import com.Main.domain.record.application.dto.RecordResponseDto;
 import com.Main.domain.record.application.service.RecordService;
 import com.Main.global.ApiResponse;
@@ -21,5 +22,10 @@ public class RecordController {
     ApiResponse<List<RecordResponseDto>> getRecord(@RequestParam(name = "userId")Long userId){
         final List<RecordResponseDto> recordResponseDtos = recordService.getUserRecord(userId);
         return ApiResponse.onSuccess(recordResponseDtos);
+    }
+    @GetMapping("/point")
+    ApiResponse<List<PointResponseDto>> getMyPoint(@RequestParam(name = "userId")Long userId){
+        final List<PointResponseDto> point = recordService.getMyPoint(userId);
+        return ApiResponse.onSuccess(point);
     }
 }
