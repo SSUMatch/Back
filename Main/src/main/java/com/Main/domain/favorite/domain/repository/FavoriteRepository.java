@@ -16,6 +16,7 @@ public interface FavoriteRepository {
     Favorite saveFavorite(User user, Place place);
 
     Optional<Favorite> findByUserAndPlace(User user, Place place);
+    Optional<Favorite>  findByUserIdAndPlaceId(Long userId, Long placeId);
 
     List<Favorite> findAllById(List<Long> favoriteIds);
 

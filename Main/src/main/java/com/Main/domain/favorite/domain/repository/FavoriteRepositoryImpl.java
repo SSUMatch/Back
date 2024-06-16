@@ -35,6 +35,10 @@ public class FavoriteRepositoryImpl implements FavoriteRepository {
     public Optional<Favorite> findByUserAndPlace(User user, Place place) {
         return favoriteRepositoryJpa.findByUserAndPlace(user, place);
     }
+    @Override
+    public Optional<Favorite> findByUserIdAndPlaceId(Long userId, Long placeId) {
+        return favoriteRepositoryJpa.findByUserIdAndPlaceId(userId, placeId);
+    }
 
     @Override
     public List<Favorite> findAllById(List<Long> favoriteIds) {

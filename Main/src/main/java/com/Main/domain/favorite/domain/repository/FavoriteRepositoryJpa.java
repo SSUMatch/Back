@@ -16,4 +16,5 @@ public interface FavoriteRepositoryJpa extends JpaRepository<Favorite, Long> {
     List<Favorite> findByUserId(@Param("userId") Long userId);
 
     Optional<Favorite> findByUserAndPlace(User user, Place place);
+    Optional<Favorite> findByUserIdAndPlaceId(Long userId, Long placeId);
 }

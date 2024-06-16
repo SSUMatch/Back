@@ -30,13 +30,17 @@ public class QMatches extends EntityPathBase<Matches> {
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
+    public final BooleanPath isPom = createBoolean("isPom");
+
+    public final BooleanPath isWin = createBoolean("isWin");
+
     public final QManager manager;
 
     public final StringPath number = createString("number");
 
     public final com.Main.domain.place.domain.entity.QPlace place;
 
-    public final NumberPath<Long> pom = createNumber("pom", Long.class);
+    public final NumberPath<Integer> pom = createNumber("pom", Integer.class);
 
     public final EnumPath<MatchSize> size = createEnum("size", MatchSize.class);
 

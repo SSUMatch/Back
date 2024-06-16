@@ -40,15 +40,12 @@ public class RecordService {
         List<RecordResponseDto> recordResponseDtos = matchesList.stream().map(matches ->
                 RecordResponseDto.of(
                         matches,
-                        true,
                         matchesFormatter.getMatchInfo(matches),
-                        20,
                         userMatchReader.findByUserIdAndMatchesId(userId, matches.getId()),
                         createQuarterRecordResponses(userId, matches),
                         userMatchReader.getTeam(matches.getId(), TeamType.RED).stream().map(userMatch -> SimpleTeamResponse.of(userMatch)).toList(),
                         userMatchReader.getTeam(matches.getId(), TeamType.GREEN).stream().map(userMatch -> SimpleTeamResponse.of(userMatch)).toList(),
-                        userMatchReader.getTeam(matches.getId(), TeamType.BLUE).stream().map(userMatch -> SimpleTeamResponse.of(userMatch)).toList(),
-                        true
+                        userMatchReader.getTeam(matches.getId(), TeamType.BLUE).stream().map(userMatch -> SimpleTeamResponse.of(userMatch)).toList()
                 )).toList();
         return recordResponseDtos;
     }

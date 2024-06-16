@@ -25,6 +25,8 @@ public class Matches {
     private LocalTime start_time; // 시작 시간
     private LocalTime end_time; // 종료 시간
     private String number; // 전화번호
+    private Boolean isPom;
+    private Boolean isWin;
 
     @Enumerated(EnumType.STRING) private MatchType type; // 게임 종류
     @Enumerated(EnumType.STRING) private MatchSize size; // 인원 수
@@ -40,9 +42,6 @@ public class Matches {
     @Enumerated(EnumType.STRING)
     private TeamType winner;
 //    private String winner;
-    private Long pom;
+    private int pom;
 
-    public static Matches of(Long id, LocalDateTime date, LocalTime start_time, LocalTime end_time, String number, MatchType type, MatchSize size, MatchGender gender, Place place, Manager manager, TeamType winner, Long pom) {
-        return new Matches(id, date, start_time, end_time, number, type, size, gender, place, manager,winner, pom);
-    }
 }

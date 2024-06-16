@@ -22,13 +22,13 @@ public record RecordResponseDto(
         List<SimpleTeamResponse> blueTeam
 ) {
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy년 M월 d일 (EE) a h:mm");
-    public static RecordResponseDto of(Matches matches, Boolean isPom, String type, int point,
+    public static RecordResponseDto of(Matches matches,String type,
                                        UserMatch userMatch,
                                        List<QuarterRecordResponse> quarterRecords,
                                        List<SimpleTeamResponse> redTeam,
                                        List<SimpleTeamResponse> greenTeam,
-                                       List<SimpleTeamResponse> blueTeam, Boolean isWin){
+                                       List<SimpleTeamResponse> blueTeam){
         String formattedDate = matches.getDate().format(DATE_TIME_FORMATTER);
-        return new RecordResponseDto(isWin,formattedDate, matches.getPlace().getName(), type, isPom, point, userMatch.getNumber(), userMatch.getTeamType().getColor(),quarterRecords, redTeam,greenTeam,blueTeam );
+        return new RecordResponseDto(matches.getIsWin(),formattedDate, matches.getPlace().getName(), type, matches.getIsPom(), matches.getPom(), userMatch.getNumber(), userMatch.getTeamType().getColor(),quarterRecords, redTeam,greenTeam,blueTeam );
     }
 }
