@@ -8,9 +8,9 @@ import java.math.RoundingMode;
 public record PlaceInfoResponse(
         Long placeId,
         String name,
-        String distance,
-        double latitude,
-        double longitude
+        String distance
+//        double latitude,
+//        double longitude
 ) implements Comparable<PlaceInfoResponse> {
 
     public static PlaceInfoResponse of(PlaceDto placeDto) {
@@ -24,9 +24,9 @@ public record PlaceInfoResponse(
         return new PlaceInfoResponse(
                 placeDto.placeId(),
                 placeDto.name(),
-                distanceString,
-                placeDto.latitude(),
-                placeDto.longitude());
+                distanceString);
+//                placeDto.latitude(),
+//                placeDto.longitude());
     }
 
     @Override
