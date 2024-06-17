@@ -19,7 +19,10 @@ import com.Main.domain.userMatch.domain.service.UserMatchReader;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -30,9 +33,12 @@ public class RecordService {
     private final QuarterInfoReader quarterInfoReader;
     private final QuarterReader quarterReader;
     private final MatchesFormatter matchesFormatter;
-    public List<PointResponseDto> getMyPoint(Long userId){
+    public List<PointResponseDto> getMyPoint(Long userId) {
         List<UserMatch> userMatchList = userMatchReader.getAllUserMatchByUserId(userId);
-        return userMatchList.stream().map( userMatch -> PointResponseDto.of(userMatch.getPoint(),userMatch.getMatches().getDate())).toList();
+        return userMatchList.stream()
+                .map(userMatch -> PointResponseDto.of(userMatch.getPoint(), userMatch.getMatches().getDate()))
+                .sorted(Comparator.comparing(dto -> LocalDate.parse(dto.date(), DateTimeFormatter.ofPattern("yyyy년 M월 d일"))))
+                .toList();
     }
     public List<RecordResponseDto> getUserRecord(Long userId){
         List<UserMatch> userMatchList = userMatchReader.getAllUserMatchByUserId(userId);
